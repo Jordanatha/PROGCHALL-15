@@ -42,35 +42,35 @@ class Essay : public GradedActivity{
 			maxContent = Cscore;
 		}
 		
-		void setMaxGrammarScore (int gscore){
+		void setGrammarScore (int gscore){
 			this -> maxGrammar = gscore;
 		}
 		
-		void setMaxSpellingScore (int sscore){
+		void setSpellingScore (int sscore){
 			this -> maxSpelling = sscore;
 		}
 		
-		void setMaxLengthScore (int lscore){
+		void setLengthScore (int lscore){
 			this -> maxLength = lscore;
 		}
 		
-		void setMaxContentScore (int cscore){
+		void setContentScore (int cscore){
 			this -> maxContent = cscore;
 		}
 		
-		int getMaxGrammarScore (){
+		int getGrammarScore (){
 			return maxGrammar;
 		}
 		
-		int getMaxSpellingScore (){
+		int getSpellingScore (){
 			return maxSpelling;
 		}
 		
-		int getMaxLengthScore (){
+		int getLengthScore (){
 			return maxLength;
 		}
 		
-		int getMaxContentScore (){
+		int getContentScore (){
 			return maxContent;
 		}
 		
@@ -107,7 +107,7 @@ int main (){
 	Essay obj (InputGrammar, InputSpelling, InputLength, InputContent);
 	obj.showData();
 	
-	cout << "Total Score : " << obj.getMaxContentScore() + obj.getMaxGrammarScore() + obj.getMaxLengthScore() + obj.getMaxSpellingScore();
+	cout << "Total Score : " << obj.getContentScore() + obj.getGrammarScore() + obj.getLengthScore() + obj.getSpellingScore();
 	
 }
 

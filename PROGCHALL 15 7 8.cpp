@@ -111,10 +111,38 @@ class CustomerData : public PersonData{
 		}
 };
 
+class PreferredCustomer : public CustomerData{
+	private :
+		double purchasesAmount;
+		double discountLevel;
+		
+	public :
+		
+		PreferredCustomer (string firstName, string lastName, string address, string city, string state, int zip, string phone) : CustomerData (firstName, lastName, address, city, state, zip, phone){
+		}
+		
+		void setPurchaseAmount (double purchasesAmount){
+			this -> purchasesAmount = purchasesAmount;
+		}
+		
+		void setDiscountLevel (double discountLevel){
+			this -> discountLevel = discountLevel;
+		}
+		
+		int getPurchaseAmount (){
+			return purchasesAmount;
+		}
+		
+		int getDiscountLevel (){
+			return discountLevel;
+		}
+};
+
 int main (){
 	bool input;
+	double spending;
 	
-	CustomerData obj ("Jordanatha", "J", "Budi Indah", "Jakarta", "Indonesia", 14022, "089627888389");
+	PreferredCustomer obj ("Jordanatha", "J", "Budi Indah", "Jakarta", "Indonesia", 14022, "089627888389");
 	
 	cout << obj.getFirstName() << endl;
 	cout << obj.getLastName() << endl;
@@ -132,4 +160,35 @@ int main (){
 	
 	obj.setCustomerNumber(2892030);
 	cout << obj.getCustomerNumber(); 
+	cout << endl << endl;
+	
+	cout << "How much spending? " << endl;
+	cin >> spending;
+	
+	obj.setPurchaseAmount (spending);
+	cout << "Purchase Amount : " << obj.getPurchaseAmount() << endl;
+	
+	if (spending >=500 && spending < 1000){
+		obj.setDiscountLevel(5);
+		cout << "Discount : " << obj.getDiscountLevel() << "%" << endl;
+	}
+	else if (spending >=1000 && spending < 1500){
+		obj.setDiscountLevel(6);
+		cout << "Discount : " << obj.getDiscountLevel() << "%" << endl;
+	}
+	else if (spending >= 1500 && spending < 2000){
+		obj.setDiscountLevel(7);
+		cout << "Discount : " << obj.getDiscountLevel() << "%" << endl;
+	}
+	else if (spending >=2000){
+		obj.setDiscountLevel(10);
+		cout << "Discount : " << obj.getDiscountLevel() << "%" << endl;
+	}
+	else if (spending >= 1 && spending < 500){
+		obj.setDiscountLevel(0);
+		cout << "Discount : " << obj.getDiscountLevel() << "%" << endl;
+	}
+	else {
+		cout << "Minus value.";
+	}
 }
